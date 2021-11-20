@@ -32,11 +32,11 @@ namespace NewsletterSubscription
                 string first = Request.Cookies["userCookie"]["firstName"];
                 string last = Request.Cookies["userCookie"]["lastName"];
                 string name = first + " " + last;
-                litInfo.Text = "Hello " + name + ", Please enter your info:";
+                litInfo.Text = "Hallo " + name + ", Bitte geben Sie Ihre persönlichen Daten an:";
             }
             else
             {
-                litInfo.Text = "Please enter your info:";
+                litInfo.Text = "Bitte geben Sie Ihre persönlichen Daten an:";
             }
 
             if (Session["firstName"] != null)
