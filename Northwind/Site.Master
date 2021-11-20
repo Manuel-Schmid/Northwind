@@ -8,21 +8,29 @@
 </head>
 <body>
     <form id="form1" runat="server">
+
         <header>
             <div class="title">
                 <span>GBS Northwind</span>
             </div>
         </header>
-        <footer>
-            <asp:Label ID="userinfo" runat="server" Text="&copy; Vorname, Name, Klasse"></asp:Label>
-        </footer>
+        
+        <section class="main-container">
 
+            <div class="menu">
+                <asp:ContentPlaceHolder ID="navigation" runat="server">Regionen</asp:ContentPlaceHolder>
+            </div>
 
+            <div class="content-container">
+                <asp:ContentPlaceHolder ID="content" runat="server"></asp:ContentPlaceHolder>
+            </div>
 
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
+            <footer>
+                <asp:Label ID="userinfo" runat="server" Text="&copy; Vorname, Name, Klasse"></asp:Label>
+            </footer>
+
+        </section>
+
     </form>
 </body>
 </html>
