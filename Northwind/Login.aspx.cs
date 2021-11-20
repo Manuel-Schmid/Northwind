@@ -126,10 +126,9 @@ namespace NewsletterSubscription
                 Session["lastName"] = txtLastName.Text;
                 Session["email"] = txtEmail.Text;
                 Session["birthdate"] = calBithdate.SelectedDate.ToString();
-                Session["birthdate"] = calBithdate.SelectedDate.ToString();
                 Session["interest"] = radioInterests.SelectedItem.Value.ToString();
 
-                Response.Redirect("~/confirmation.aspx");
+                Response.Redirect("~/RegionManagement.aspx");
             }
         }
     }

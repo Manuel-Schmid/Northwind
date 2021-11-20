@@ -1,5 +1,6 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NewsletterSubscription.aspx.cs" Inherits="NewsletterSubscription.NewsletterSubscription" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="NewsletterSubscription.NewsletterSubscription" %>
 
+<asp:Content ID="NavigationContent" ContentPlaceHolderID="navigation" runat="server">Anmelden</asp:Content>
 <asp:Content ID="contentControl" ContentPlaceHolderID="content" runat="server">
 
     <p>
@@ -35,11 +36,12 @@
         />
     <br />
     <br />
-    Interests<asp:RadioButtonList ID="radioInterests" runat="server">
+    Interests
+    <asp:RadioButtonList ID="radioInterests" runat="server">
         <asp:ListItem Value="Desktop Applications">Desktop Applications</asp:ListItem>
         <asp:ListItem Value="Web-Applications">Web-Applications</asp:ListItem>
         <asp:ListItem Value="Mobile-Apps">Mobile-Apps</asp:ListItem>
-    </asp:RadioButtonList><a href="Web.config">Web.config</a>
+    </asp:RadioButtonList>
     <asp:RequiredFieldValidator id="requiredFieldValidator4" ControlToValidate="radioInterests"
         ErrorMessage="Please choose one of the listed interests" 
         runat="server"/>
