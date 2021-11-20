@@ -1,0 +1,28 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Northwind.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+            <div class="title">
+                <span>GBS Northwind</span>
+            </div>
+        </header>
+        <footer>
+            <asp:Label ID="userinfo" runat="server" Text="&copy; Vorname, Name, Klasse"></asp:Label>
+        </footer>
+
+
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
