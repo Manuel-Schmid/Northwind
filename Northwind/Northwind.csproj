@@ -67,7 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="login-styles.css" />
     <Content Include="Login.aspx" />
+    <Content Include="region-management-styles.css" />
     <Content Include="RegionManagement.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

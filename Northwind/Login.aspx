@@ -2,7 +2,7 @@
 
 <asp:Content ID="NavigationContent" ContentPlaceHolderID="navigation" runat="server">Anmelden</asp:Content>
 <asp:Content ID="contentControl" ContentPlaceHolderID="content" runat="server">
-
+    <link rel="stylesheet" runat="server" media="screen" href="login-styles.css" />
     <p>
         <asp:Literal ID="litInfo" runat="server" Text="Bitte geben Sie Ihre persönlichen Daten an:"></asp:Literal>
     </p>
