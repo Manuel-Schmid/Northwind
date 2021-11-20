@@ -39,7 +39,7 @@
         <asp:ListItem Value="Desktop Applications">Desktop Applications</asp:ListItem>
         <asp:ListItem Value="Web-Applications">Web-Applications</asp:ListItem>
         <asp:ListItem Value="Mobile-Apps">Mobile-Apps</asp:ListItem>
-    </asp:RadioButtonList>
+    </asp:RadioButtonList><a href="Web.config">Web.config</a>
     <asp:RequiredFieldValidator id="requiredFieldValidator4" ControlToValidate="radioInterests"
         ErrorMessage="Please choose one of the listed interests" 
         runat="server"/>
