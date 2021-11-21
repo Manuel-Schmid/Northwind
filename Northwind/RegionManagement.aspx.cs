@@ -18,7 +18,25 @@ namespace Northwind
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            
+            SqlConnectionStringBuilder conBuilder = new SqlConnectionStringBuilder();
+            conBuilder.DataSource = @"NOTEBOOKMANY\MSSQLSERVER2019";
+            conBuilder.InitialCatalog = "Northwind";
+            conBuilder.IntegratedSecurity = true;
 
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = conBuilder.ConnectionString;
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("spInsertRegion", con);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@RegionDescription", SqlDbType.NChar).Value = "Joe Mama"; // txtRegion.Text
+
+            cmd.ExecuteNonQuery();
+
+            con.Close();
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -39,7 +57,6 @@ namespace Northwind
             //using (SqlCommand cmd = new SqlCommand("spAllRegions", con))
             SqlConnectionStringBuilder conBuilder = new SqlConnectionStringBuilder();
             conBuilder.DataSource = @"NOTEBOOKMANY\MSSQLSERVER2019";
-            //;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             conBuilder.InitialCatalog = "Northwind";
             conBuilder.IntegratedSecurity = true;
 
@@ -49,18 +66,20 @@ namespace Northwind
 
             SqlCommand cmd = new SqlCommand("spAllRegions", con);
 
-                cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandType = CommandType.StoredProcedure;
 
-                //cmd.Parameters.Add(new SqlParameter("@EmpID", SqlDbType.Int));
-                //cmd.Parameters["@EmpID"].Value = 42;
+            //cmd.Parameters.Add(new SqlParameter("@EmpID", SqlDbType.Int));
+            //cmd.Parameters["@EmpID"].Value = 42;
 
-                SqlDataAdapter dap = new SqlDataAdapter(cmd);
+            SqlDataAdapter dap = new SqlDataAdapter(cmd);
 
-                dap.Fill(tblRegions);
+            dap.Fill(tblRegions);
             
 
             RegionsGrid.DataSource = tblRegions;
             RegionsGrid.DataBind();
+
+            con.Close();
         }
     }
 }
