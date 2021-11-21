@@ -10,7 +10,7 @@
     <asp:TextBox ID="txtFirstName" runat="server" OnTextChanged="txtFirstName_TextChanged"></asp:TextBox>
     <asp:RequiredFieldValidator id="requiredFieldValidator1" ControlToValidate="txtFirstName"
         ErrorMessage="Bitte füllen Sie dieses Feld aus" 
-        runat="server"/>
+        runat="server"/><a href="Site.Master">Site.Master</a>
     <br />
     Nachname&nbsp;&nbsp;
     <asp:TextBox ID="txtLastName" runat="server" OnTextChanged="txtLastName_TextChanged"></asp:TextBox>
