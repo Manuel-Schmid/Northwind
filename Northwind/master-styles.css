@@ -7,7 +7,9 @@
 
 }
 
-
+.main-container :not(footer){
+    margin-left:5px;
+}
 
 
 header {
@@ -30,7 +32,13 @@ header {
     margin:10px;
 
 }
-    
+   
+
+.menu{
+    font-size:3vh;
+    text-decoration:underline;
+    padding:5px;
+}
 
 footer{
     background-color:deepskyblue;

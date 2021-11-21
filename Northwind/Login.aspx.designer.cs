@@ -33,6 +33,15 @@ namespace NewsletterSubscription
         protected global::System.Web.UI.WebControls.TextBox txtFirstName;
 
         /// <summary>
+        /// requiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredFieldValidator1;
+
+        /// <summary>
         /// txtLastName control.
         /// </summary>
         /// <remarks>
@@ -78,22 +87,22 @@ namespace NewsletterSubscription
         protected global::System.Web.UI.WebControls.CustomValidator customValidator1;
 
         /// <summary>
-        /// calBithdate control.
+        /// txtBirthdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar calBithdate;
+        protected global::System.Web.UI.WebControls.TextBox txtBirthdate;
 
         /// <summary>
-        /// dateCustVal control.
+        /// rangeBirthdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator dateCustVal;
+        protected global::System.Web.UI.WebControls.RangeValidator rangeBirthdate;
 
         /// <summary>
         /// radioInterests control.

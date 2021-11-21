@@ -98,18 +98,38 @@ namespace NewsletterSubscription
             args.IsValid = checkAGB.Checked;
         }
 
+
+        /*
+            
+        
         protected void DateCustVal_Validate(object source, ServerValidateEventArgs args)
         {
-            if (calBithdate.SelectedDate == null
-                || calBithdate.SelectedDate == new DateTime(0001, 1, 1, 0, 0, 0))
+
+            
+            
+                
+
+                
+            
+            if (txtBithdate.Text == null)
+//                || txtBithdate.Text == new DateTime(0001, 1, 1, 0, 0, 0))
             {
                 args.IsValid = false;
             }
             else
             {
-                args.IsValid = true;
+                try
+                {
+                    
+                    args.IsValid = true;
+                }
+                catch
+                {
+                    args.IsValid = false;
+                }
             }
         }
+        */
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -125,7 +145,7 @@ namespace NewsletterSubscription
                 Session["firstName"] = txtFirstName.Text;
                 Session["lastName"] = txtLastName.Text;
                 Session["email"] = txtEmail.Text;
-                Session["birthdate"] = calBithdate.SelectedDate.ToString();
+                Session["birthdate"] = txtBirthdate.Text;
                 Session["interest"] = radioInterests.SelectedItem.Value.ToString();
 
                 Response.Redirect("~/RegionManagement.aspx");
