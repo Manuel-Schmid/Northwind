@@ -4,14 +4,16 @@
 
 <html>
 <head runat="server">
+    <link rel="stylesheet" href="master-styles.css">
     <title></title>
+
 </head>
 <body>
     <form id="form1" runat="server">
 
         <header>
             <div class="title">
-                <span>GBS Northwind</span>
+                <span class="northwindTitle"> GBS Northwind </span>
             </div>
         </header>
         
