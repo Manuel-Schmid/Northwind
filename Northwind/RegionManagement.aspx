@@ -7,9 +7,11 @@
     <asp:Button ID="btnAdd" runat="server" Text="Hinzufügen" />
     <asp:Button ID="btnDelete" runat="server" Text="Löschen" />
     <asp:Button ID="btnBigSmall" runat="server" Text="Gross/Klein" />
+    <asp:Button ID="btnSelect" runat="server" OnClick="btnSelect_Click" Text="Anzeigen" />
     <br />
     <br />
     <br />
+    <asp:GridView ID="RegionsGrid" runat="server" ></asp:GridView>
     <br />
     <br />
     <br />
