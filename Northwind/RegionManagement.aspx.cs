@@ -11,75 +11,169 @@ namespace Northwind
 {
     public partial class RegionManagement : System.Web.UI.Page
     {
+        readonly SqlConnectionStringBuilder conBuilder = new SqlConnectionStringBuilder();
         protected void Page_Load(object sender, EventArgs e)
         {
             
-        }
-
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-            
-            SqlConnectionStringBuilder conBuilder = new SqlConnectionStringBuilder();
             conBuilder.DataSource = @"NOTEBOOKMANY\MSSQLSERVER2019";
             conBuilder.InitialCatalog = "Northwind";
             conBuilder.IntegratedSecurity = true;
 
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = conBuilder.ConnectionString;
-            con.Open();
+            selectRegionsAll();
+        }
 
-            SqlCommand cmd = new SqlCommand("spInsertRegion", con);
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (txtRegion.Text == "")
+            {
+                lblNonExistent.Text = "Please enter a region name";
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = conBuilder.ConnectionString;
+                con.Open();
 
-            cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("spInsertRegion", con);
 
-            cmd.Parameters.Add("@RegionDescription", SqlDbType.NChar).Value = "Joe Mama"; // txtRegion.Text
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.ExecuteNonQuery();
+                cmd.Parameters.Add(new SqlParameter("@RegionDescription", SqlDbType.VarChar));
+                cmd.Parameters["@RegionDescription"].Value = txtRegion.Text;
 
-            con.Close();
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                selectRegionsAll();
+            }
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
+            if (txtRegion.Text == "")
+            {
+                lblNonExistent.Text = "Please enter a region name";
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = conBuilder.ConnectionString;
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("spDeleteRegion", con);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@RegionDescription", SqlDbType.VarChar));
+                cmd.Parameters["@RegionDescription"].Value = txtRegion.Text;
+
+                int deletedRowsCount = cmd.ExecuteNonQuery();
+                con.Close();
+
+                if (deletedRowsCount == 0)
+                {
+                    lblNonExistent.Text = "There is no such region in this database.";
+                }
+                else
+                {
+                    selectRegionsAll();
+                }
+            }
 
         }
 
         protected void btnBigSmall_Click(object sender, EventArgs e)
         {
+            if (txtRegion.Text == "")
+            {
+                lblNonExistent.Text = "Please enter a region name";
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = conBuilder.ConnectionString;
+                con.Open();
 
+                SqlCommand cmd = new SqlCommand("spSelectRegion", con);
+                cmd.Parameters.Add(new SqlParameter("@RegionDescription", SqlDbType.VarChar));
+                cmd.Parameters["@RegionDescription"].Value = txtRegion.Text;
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                DataSet ds = new DataSet();
+                SqlDataAdapter dap = new SqlDataAdapter(cmd);
+
+                dap.Fill(ds);
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    int regionID = (int)ds.Tables[0].Rows[0]["RegionID"];
+                    string regionDescription = ds.Tables[0].Rows[0]["RegionDescription"].ToString();
+
+                    string newRegionDescription = new string(
+                        regionDescription.Select(c => char.IsLetter(c) ? (char.IsUpper(c) ?
+                                                      char.ToLower(c) : char.ToUpper(c)) : c).ToArray());
+
+                    updateRegion(regionID, newRegionDescription);
+
+                    con.Close();
+
+                    selectRegionsAll();
+                }
+                else
+                {
+                    lblNonExistent.Text = "There is no such region in this database.";
+                }
+            }
         }
 
-        protected void btnSelect_Click(object sender, EventArgs e)
+        private void updateRegion(int regionID, string newRegionDescription)
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = conBuilder.ConnectionString;
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("spUpdateRegion", con);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add(new SqlParameter("@RegionID", SqlDbType.VarChar));
+            cmd.Parameters.Add(new SqlParameter("@NewRegionDescription", SqlDbType.VarChar));
+            cmd.Parameters["@RegionID"].Value = regionID;
+            cmd.Parameters["@NewRegionDescription"].Value = newRegionDescription;
+
+            int deletedRowsCount = cmd.ExecuteNonQuery();
+
+            if (deletedRowsCount == 0)
+            {
+                lblNonExistent.Text = "There is no such region in this database.";
+            }
+
+            con.Close();
+        }
+
+        private void selectRegionsAll()
         {
             DataTable tblRegions = new DataTable();
-
-            //using (SqlConnection con = new SqlConnection(@"Data Source=NOTEBOOKMANY\MSSQLSERVER2019;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"))
-            //using (SqlCommand cmd = new SqlCommand("spAllRegions", con))
-            SqlConnectionStringBuilder conBuilder = new SqlConnectionStringBuilder();
-            conBuilder.DataSource = @"NOTEBOOKMANY\MSSQLSERVER2019";
-            conBuilder.InitialCatalog = "Northwind";
-            conBuilder.IntegratedSecurity = true;
 
             SqlConnection con = new SqlConnection();
             con.ConnectionString = conBuilder.ConnectionString;
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("spAllRegions", con);
+            SqlCommand cmd = new SqlCommand("spSelectAllRegions", con);
 
             cmd.CommandType = CommandType.StoredProcedure;
-
-            //cmd.Parameters.Add(new SqlParameter("@EmpID", SqlDbType.Int));
-            //cmd.Parameters["@EmpID"].Value = 42;
 
             SqlDataAdapter dap = new SqlDataAdapter(cmd);
 
             dap.Fill(tblRegions);
-            
 
             RegionsGrid.DataSource = tblRegions;
             RegionsGrid.DataBind();
 
             con.Close();
+
+            lblNonExistent.Text = "";
         }
     }
 }
