@@ -4,12 +4,14 @@
     <link rel="stylesheet" runat="server" media="screen" href="region-management-styles.css" />
 
     <asp:TextBox ID="txtRegion" runat="server" CssClass="txtRegion"></asp:TextBox>
-    <asp:Button ID="btnAdd" runat="server" Text="Hinzufügen" />
-    <asp:Button ID="btnDelete" runat="server" Text="Löschen" />
-    <asp:Button ID="btnBigSmall" runat="server" Text="Gross/Klein" />
+    <asp:Button ID="btnAdd" runat="server" Text="Hinzufügen" OnClick="btnAdd_Click" />
+    <asp:Button ID="btnDelete" runat="server" Text="Löschen" OnClick="btnDelete_Click" />
+    <asp:Button ID="btnBigSmall" runat="server" Text="Gross/Klein" OnClick="btnBigSmall_Click"/>
+    <br />
+    <asp:Label ID="lblNonExistent" runat="server"></asp:Label>
     <br />
     <br />
-    <br />
+    <asp:GridView ID="RegionsGrid" runat="server"></asp:GridView>
     <br />
     <br />
     <br />
