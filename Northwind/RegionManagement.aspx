@@ -3,7 +3,7 @@
 <asp:Content ID="ContentContent" ContentPlaceHolderID="content" runat="server">
     <link rel="stylesheet" runat="server" media="screen" href="region-management-styles.css" />
 
-    <asp:TextBox ID="txtRegion" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtRegion" runat="server" CssClass="txtRegion"></asp:TextBox>
     <asp:Button ID="btnAdd" runat="server" Text="Hinzufügen" />
     <asp:Button ID="btnDelete" runat="server" Text="Löschen" />
     <asp:Button ID="btnBigSmall" runat="server" Text="Gross/Klein" />
