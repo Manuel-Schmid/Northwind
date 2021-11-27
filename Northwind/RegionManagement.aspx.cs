@@ -24,108 +24,107 @@ namespace Northwind
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = conBuilder.ConnectionString;
-            con.Open();
+            if (txtRegion.Text == "")
+            {
+                lblNonExistent.Text = "Please enter a region name";
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = conBuilder.ConnectionString;
+                con.Open();
 
-            SqlCommand cmd = new SqlCommand("spInsertRegion", con);
+                SqlCommand cmd = new SqlCommand("spInsertRegion", con);
 
-            cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.Add(new SqlParameter("@RegionDescription", SqlDbType.VarChar));
-            cmd.Parameters["@RegionDescription"].Value = txtRegion.Text;
+                cmd.Parameters.Add(new SqlParameter("@RegionDescription", SqlDbType.VarChar));
+                cmd.Parameters["@RegionDescription"].Value = txtRegion.Text;
 
-            cmd.ExecuteNonQuery();
-            con.Close();
+                cmd.ExecuteNonQuery();
+                con.Close();
 
-            selectRegionsAll();
+                selectRegionsAll();
+            }
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = conBuilder.ConnectionString;
-            con.Open();
-
-            SqlCommand cmd = new SqlCommand("spDeleteRegion", con);
-
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.Add(new SqlParameter("@RegionDescription", SqlDbType.VarChar));
-            cmd.Parameters["@RegionDescription"].Value = txtRegion.Text;
-
-            int deletedRowsCount = cmd.ExecuteNonQuery();
-
-            if (deletedRowsCount == 0)
+            if (txtRegion.Text == "")
             {
-                lblNonExistent.Text = "There is no such region in this database.";
-            } else
+                lblNonExistent.Text = "Please enter a region name";
+            }
+            else
             {
-                selectRegionsAll();
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = conBuilder.ConnectionString;
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("spDeleteRegion", con);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@RegionDescription", SqlDbType.VarChar));
+                cmd.Parameters["@RegionDescription"].Value = txtRegion.Text;
+
+                int deletedRowsCount = cmd.ExecuteNonQuery();
+                con.Close();
+
+                if (deletedRowsCount == 0)
+                {
+                    lblNonExistent.Text = "There is no such region in this database.";
+                }
+                else
+                {
+                    selectRegionsAll();
+                }
             }
 
-            con.Close();
         }
 
         protected void btnBigSmall_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = conBuilder.ConnectionString;
-            con.Open();
-
-            SqlCommand cmd = new SqlCommand("spSelectRegion", con);
-            cmd.Parameters.Add(new SqlParameter("@RegionDescription", SqlDbType.VarChar));
-            cmd.Parameters["@RegionDescription"].Value = txtRegion.Text;
-
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            DataSet ds = new DataSet();
-            SqlDataAdapter dap = new SqlDataAdapter(cmd);
-
-            dap.Fill(ds);
-
-            if (ds.Tables[0].Rows.Count > 0)
+            if (txtRegion.Text == "")
             {
-                int regionID = (int)ds.Tables[0].Rows[0]["RegionID"];
-                string regionDescription = ds.Tables[0].Rows[0]["RegionDescription"].ToString();
-
-                string newRegionDescription = new string(
-                    regionDescription.Select(c => char.IsLetter(c) ? (char.IsUpper(c) ?
-                                                  char.ToLower(c) : char.ToUpper(c)) : c).ToArray());
-
-                updateRegion(regionID, newRegionDescription);
-
-                con.Close();
-
-                selectRegionsAll();
-            } 
+                lblNonExistent.Text = "Please enter a region name";
+            }
             else
             {
-                lblNonExistent.Text = "There is no such region in this database.";
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = conBuilder.ConnectionString;
+                con.Open();
 
+                SqlCommand cmd = new SqlCommand("spSelectRegion", con);
+                cmd.Parameters.Add(new SqlParameter("@RegionDescription", SqlDbType.VarChar));
+                cmd.Parameters["@RegionDescription"].Value = txtRegion.Text;
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                DataSet ds = new DataSet();
+                SqlDataAdapter dap = new SqlDataAdapter(cmd);
+
+                dap.Fill(ds);
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    int regionID = (int)ds.Tables[0].Rows[0]["RegionID"];
+                    string regionDescription = ds.Tables[0].Rows[0]["RegionDescription"].ToString();
+
+                    string newRegionDescription = new string(
+                        regionDescription.Select(c => char.IsLetter(c) ? (char.IsUpper(c) ?
+                                                      char.ToLower(c) : char.ToUpper(c)) : c).ToArray());
+
+                    updateRegion(regionID, newRegionDescription);
+
+                    con.Close();
+
+                    selectRegionsAll();
+                }
+                else
+                {
+                    lblNonExistent.Text = "There is no such region in this database.";
+                }
             }
-        }
-
-        private void selectRegionsAll()
-        {
-            DataTable tblRegions = new DataTable();
-
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = conBuilder.ConnectionString;
-            con.Open();
-
-            SqlCommand cmd = new SqlCommand("spSelectAllRegions", con);
-
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            SqlDataAdapter dap = new SqlDataAdapter(cmd);
-
-            dap.Fill(tblRegions);
-
-            RegionsGrid.DataSource = tblRegions;
-            RegionsGrid.DataBind();
-
-            con.Close();
         }
 
         private void updateRegion(int regionID, string newRegionDescription)
@@ -151,6 +150,30 @@ namespace Northwind
             }
 
             con.Close();
+        }
+
+        private void selectRegionsAll()
+        {
+            DataTable tblRegions = new DataTable();
+
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = conBuilder.ConnectionString;
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("spSelectAllRegions", con);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlDataAdapter dap = new SqlDataAdapter(cmd);
+
+            dap.Fill(tblRegions);
+
+            RegionsGrid.DataSource = tblRegions;
+            RegionsGrid.DataBind();
+
+            con.Close();
+
+            lblNonExistent.Text = "";
         }
     }
 }
