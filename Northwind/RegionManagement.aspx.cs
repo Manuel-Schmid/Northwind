@@ -18,6 +18,8 @@ namespace Northwind
             conBuilder.DataSource = @"NOTEBOOKMANY\MSSQLSERVER2019";
             conBuilder.InitialCatalog = "Northwind";
             conBuilder.IntegratedSecurity = true;
+
+            selectRegionsAll();
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -36,7 +38,7 @@ namespace Northwind
             cmd.ExecuteNonQuery();
             con.Close();
 
-            btnSelect_Click(sender, e);
+            selectRegionsAll();
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
@@ -54,11 +56,15 @@ namespace Northwind
 
             int deletedRowsCount = cmd.ExecuteNonQuery();
 
-            // print when no effects
+            if (deletedRowsCount == 0)
+            {
+                lblNonExistent.Text = "There is no such region in this database.";
+            } else
+            {
+                selectRegionsAll();
+            }
 
             con.Close();
-
-            btnSelect_Click(sender, e);
         }
 
         protected void btnBigSmall_Click(object sender, EventArgs e)
@@ -78,22 +84,29 @@ namespace Northwind
 
             dap.Fill(ds);
 
-            int regionID = (int)ds.Tables[0].Rows[0]["RegionID"];
-            string regionDescription = ds.Tables[0].Rows[0]["RegionDescription"].ToString();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                int regionID = (int)ds.Tables[0].Rows[0]["RegionID"];
+                string regionDescription = ds.Tables[0].Rows[0]["RegionDescription"].ToString();
 
-            string newRegionDescription = new string(
-                regionDescription.Select(c => char.IsLetter(c) ? (char.IsUpper(c) ?
-                                              char.ToLower(c) : char.ToUpper(c)) : c).ToArray());
+                string newRegionDescription = new string(
+                    regionDescription.Select(c => char.IsLetter(c) ? (char.IsUpper(c) ?
+                                                  char.ToLower(c) : char.ToUpper(c)) : c).ToArray());
 
-            updateRegion(regionID, newRegionDescription);
+                updateRegion(regionID, newRegionDescription);
 
-            con.Close();
+                con.Close();
 
-            btnSelect_Click(sender, e);
+                selectRegionsAll();
+            } 
+            else
+            {
+                lblNonExistent.Text = "There is no such region in this database.";
 
+            }
         }
 
-        protected void btnSelect_Click(object sender, EventArgs e)
+        private void selectRegionsAll()
         {
             DataTable tblRegions = new DataTable();
 
@@ -132,7 +145,10 @@ namespace Northwind
 
             int deletedRowsCount = cmd.ExecuteNonQuery();
 
-            // print when no effects
+            if (deletedRowsCount == 0)
+            {
+                lblNonExistent.Text = "There is no such region in this database.";
+            }
 
             con.Close();
         }

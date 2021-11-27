@@ -7,8 +7,8 @@
     <asp:Button ID="btnAdd" runat="server" Text="Hinzufügen" OnClick="btnAdd_Click" />
     <asp:Button ID="btnDelete" runat="server" Text="Löschen" OnClick="btnDelete_Click" />
     <asp:Button ID="btnBigSmall" runat="server" Text="Gross/Klein" OnClick="btnBigSmall_Click" />
-    <asp:Button ID="btnSelect" runat="server" Text="Anzeigen" OnClick="btnSelect_Click" />
     <br />
+    <asp:Label ID="lblNonExistent" runat="server"></asp:Label>
     <br />
     <br />
     <asp:GridView ID="RegionsGrid" runat="server" ></asp:GridView>
