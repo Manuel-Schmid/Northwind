@@ -28,7 +28,7 @@
             </div>
 
             <footer>
-                <asp:Label ID="userinfo" runat="server" Text="&copy; Vorname, Name, Klasse"></asp:Label>
+                <asp:Label ID="userinfo" runat="server" Text=""></asp:Label>
             </footer>
 
         </section>

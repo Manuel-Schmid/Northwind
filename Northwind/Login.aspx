@@ -37,11 +37,21 @@
         ErrorMessage="Bitte geben Sie eine gültige E-Mail Adresse ein" runat="server" Display="Dynamic"/>
     <br />
     <br />
-    <asp:Label runat="server" CssClass="birthdate">Geburtsdatum</asp:Label>
+    <asp:Label runat="server" CssClass="lblBirthdate">Geburtsdatum</asp:Label>
     <br />
     <asp:TextBox ID="txtBirthdate" runat="server" CssClass="txtBirthdate"></asp:TextBox>
     <asp:RangeValidator ID="rangeBirthdate" runat="server" ControlToValidate="txtBirthdate" ErrorMessage="Bitte geben Sie ein gültiges Datum ein" MinimumValue="01.01.1900" MaximumValue="31.12.2021"  Type="Date" Display="Dynamic"></asp:RangeValidator>
-    
+    <asp:RequiredFieldValidator id="requiredFieldValidator6" ControlToValidate="txtBirthdate"
+        ErrorMessage="Bitte füllen Sie dieses Feld aus" 
+        runat="server"/>
+    <br />
+    <br />
+    <asp:Label ID="lblClass" runat="server" Text="Klasse" CssClass="lblClass"></asp:Label>
+    <br />
+    <asp:TextBox ID="txtClass" runat="server" CssClass="txtClass"></asp:TextBox>
+    <asp:RequiredFieldValidator id="requiredFieldValidator5" ControlToValidate="txtClass"
+        ErrorMessage="Bitte füllen Sie diesses Feld aus" 
+        runat="server"/>
     <br />
     <br />
     <asp:Label runat="server" CssClass="interests">Interessen</asp:Label>
@@ -59,6 +69,7 @@
     <asp:CustomValidator id="customValidator2"
         OnServerValidate="checkBoxValidator"
         ErrorMessage="Sie müssen die Nutzungsbedingungen akzeptieren" runat="server" Display="Dynamic"/>
+
     <br />        
     <br />
     <br />

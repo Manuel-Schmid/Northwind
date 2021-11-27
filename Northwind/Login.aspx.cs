@@ -44,7 +44,11 @@ namespace NewsletterSubscription
                 txtFirstName.Text = Session["firstName"].ToString();
                 txtLastName.Text = Session["lastName"].ToString();
                 txtEmail.Text = Session["email"].ToString();
+                txtBirthdate.Text = Session["birthdate"].ToString();
+                txtClass.Text = Session["class"].ToString();
             }
+
+
         }
 
         private Boolean checkIfCookieIsSet()
@@ -99,37 +103,7 @@ namespace NewsletterSubscription
         }
 
 
-        /*
-            
         
-        protected void DateCustVal_Validate(object source, ServerValidateEventArgs args)
-        {
-
-            
-            
-                
-
-                
-            
-            if (txtBithdate.Text == null)
-//                || txtBithdate.Text == new DateTime(0001, 1, 1, 0, 0, 0))
-            {
-                args.IsValid = false;
-            }
-            else
-            {
-                try
-                {
-                    
-                    args.IsValid = true;
-                }
-                catch
-                {
-                    args.IsValid = false;
-                }
-            }
-        }
-        */
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -146,6 +120,7 @@ namespace NewsletterSubscription
                 Session["lastName"] = txtLastName.Text;
                 Session["email"] = txtEmail.Text;
                 Session["birthdate"] = txtBirthdate.Text;
+                Session["class"] = txtClass.Text;
                 Session["interest"] = radioInterests.SelectedItem.Value.ToString();
 
                 Response.Redirect("~/RegionManagement.aspx");
