@@ -11,7 +11,23 @@ namespace Northwind
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ( Session["firstname"] != null)
+            {
+                string firstname = Session["firstname"].ToString();
+                string lastname = Session["lastname"].ToString();
+                string classe = Session["class"].ToString();
+                userinfo.Text = firstname + " " + lastname + " " + classe;
 
+
+            }
+
+            
+            
+        }
+
+        private Boolean checkIfCookieIsSet()
+        {
+            return (Request.Cookies["userCookie"]["firstName"] != null && Request.Cookies["userCookie"]["lastName"] != null && Request.Cookies["userCookie"]["class"] != null);
         }
     }
 }
