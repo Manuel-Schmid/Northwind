@@ -62,6 +62,7 @@
     <br />        
     <br />
     <br />
-    <asp:Button type="submit" ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Einreichen" CssClass="btnSumbit" />
-
+    
+    <asp:Button type="submit" ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Einreichen" CssClass="btnSubmit" />
+    
 </asp:Content>
