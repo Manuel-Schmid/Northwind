@@ -1,12 +1,17 @@
-﻿USE Northwind;
+﻿/*
+USE Northwind;
 
-/*
+DROP PROC IF EXISTS spInsertRegions;
+
 GO 
-CREATE PROC spInsertRegion 
-	@RegionDescription NCHAR(50)
+CREATE PROC spInsertRegion
+(
+	@RegionDescription VARCHAR(50)
+)
 AS
 INSERT INTO Region (RegionID, RegionDescription)
 VALUES ((SELECT MAX(RegionID) FROM Region) + 1, @RegionDescription);
+GO
 */
-
-EXEC spInsertRegion @RegionDescription = 'North-South-west';
+/**/
+EXEC spInsertRegion @RegionDescription = 'test';
