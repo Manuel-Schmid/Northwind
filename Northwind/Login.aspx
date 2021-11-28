@@ -70,9 +70,9 @@
         OnServerValidate="checkBoxValidator"
         ErrorMessage="Sie müssen die Nutzungsbedingungen akzeptieren" runat="server" Display="Dynamic"/>
 
-    <br />        
-    <br />
-    <br />
+    <br />       
+    <!--<br />-->
+    <!--<br />-->
     
     <asp:Button type="submit" ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Einreichen" CssClass="btnSubmit" />
     
