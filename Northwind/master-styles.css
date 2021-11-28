@@ -7,8 +7,10 @@
 
 }
 
-.main-container :not(footer){
-    margin-left:5px;
+.main-container :not(footer) {
+    margin-left: 5px;
+
+    
 }
 
 
@@ -40,18 +42,31 @@ header {
     padding:5px;
 }
 
-footer{
-    background-color:deepskyblue;
+footer {
+    background-color: deepskyblue;
+    bottom: 0;
+    left:0;
+
+    width: 96vw;
+    height:15vh;
+    position:fixed;
 }
 
 
-#userinfo {
+.userinfoActive {
     font-size: 3vh;
     border-style: solid;
     line-height: 15vh;
     padding: 5px;
     padding-right:900px;
     margin: 10px;
+    
 
 }
-    
+
+.userinfoInactive {
+    font-size: 3vh;
+    line-height: 15vh;
+    padding: 5px;
+    margin: 10px;
+}
