@@ -154,7 +154,6 @@ namespace Northwind
 
         private void selectRegionsAll()
         {
-            /*
             DataTable tblRegions = new DataTable();
 
             SqlConnection con = new SqlConnection();
@@ -175,7 +174,6 @@ namespace Northwind
             con.Close();
 
             lblNonExistent.Text = "";
-            */
         }
     }
 }
