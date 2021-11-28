@@ -16,3 +16,68 @@
     border-color: lightgray;
 }
 
+.table-container {
+    width: 30vw;
+    float: right;
+    top: -76px;
+    right: 34vw;
+    position: relative;
+}
+
+.table-region {
+    width: 100%;
+    /*this will be the color of the odd row*/
+    background-color: #fff;
+    margin: 5px 0 10px 0;
+    border: solid 1px #525252;
+    border-collapse: collapse;
+}
+
+    /*data elements*/
+    .table-region td {
+        padding: 2px;
+        border: solid 1px #c1c1c1;
+        color: #717171;
+    }
+
+    /*header elements*/
+    .table-region th {
+        padding: 4px 2px;
+        color: #fff;
+        background: #424242;
+        border-left: solid 1px #525252;
+        font-size: 0.9em;
+    }
+
+    /*his will be the color of even row*/
+    .table-region .myAltRowClass {
+        background: #fcfcfc repeat-x top;
+    }
+
+    /*and finally, we style the pager on the bottom*/
+    .table-region .myPagerClass {
+        background: #424242;
+    }
+
+        .table-region .myPagerClass table {
+            margin: 5px 0;
+        }
+
+        .table-region .myPagerClass td {
+            border-width: 0;
+            padding: 0 6px;
+            border-left: solid 1px #666;
+            font-weight: bold;
+            color: #fff;
+            line-height: 12px;
+        }
+
+        .table-region .myPagerClass a {
+            color: #666;
+            text-decoration: none;
+        }
+
+            .table-region .myPagerClass a:hover {
+                color: #000;
+                text-decoration: none;
+            } 

@@ -11,7 +11,10 @@
     <asp:Label ID="lblNonExistent" runat="server"></asp:Label>
     <br />
     <br />
-    <asp:GridView ID="RegionsGrid" runat="server"></asp:GridView>
+    <div class="table-container">
+    <asp:GridView ID="RegionsGrid" runat="server" CssClass="table-region"></asp:GridView>
+
+    </div>
     <br />
     <br />
     <br />

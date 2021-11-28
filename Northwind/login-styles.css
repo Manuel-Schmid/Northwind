@@ -21,7 +21,6 @@
     border-radius: 5px;
     border-style: solid;
     border-color: lightgray;
-    
 }
 
 .btnSubmit {
@@ -33,12 +32,14 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin-bottom:30vh;
+    margin-bottom: 30vh;
+    margin-top: 20px;
+    transition-duration: 0.4s;
 }
 
-
-/*
-.joemama{
-    background-color:green;
+.btnSubmit:hover {
+    background-color: #FFFFFF !important; /* Green */
+    color: #4CAF50 !important;
+    border: 1px solid #4CAF50;
 }
-*/
+
