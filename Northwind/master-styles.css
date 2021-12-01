@@ -54,20 +54,14 @@ footer {
 
 .userinfoActive {
     font-size: 3vh;
-    border-style: solid;
     line-height: 15vh;
     padding: 5px;
-    padding-right:900px;
-    margin: 10px;
-    
-
 }
 
 .userinfoInactive {
     font-size: 3vh;
     line-height: 15vh;
     padding: 5px;
-    margin: 10px;
 }
 
 .content-container {

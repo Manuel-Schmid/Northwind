@@ -10,19 +10,19 @@
     <asp:Label runat="server" CssClass="firstName">Vorname</asp:Label>
     &nbsp;&nbsp;
     <br />
-    <asp:TextBox ID="txtFirstName" runat="server" OnTextChanged="txtFirstName_TextChanged" CssClass="txtFirstName"></asp:TextBox>
+    <asp:TextBox ID="txtFirstName" runat="server" CssClass="txtFirstName"></asp:TextBox>
     <asp:RequiredFieldValidator id="requiredFieldValidator1" ControlToValidate="txtFirstName"
         ErrorMessage="Bitte füllen Sie dieses Feld aus"
-        runat="server"/> 
+        runat="server" CssClass="validator"/> 
     <br />
     <br />
     <asp:Label runat="server" CssClass="lastName">Nachname</asp:Label>
     &nbsp;&nbsp;
     <br />
-    <asp:TextBox ID="txtLastName" runat="server" OnTextChanged="txtLastName_TextChanged" CssClass="txtLastName"></asp:TextBox>
+    <asp:TextBox ID="txtLastName" runat="server" CssClass="txtLastName"></asp:TextBox>
         <asp:RequiredFieldValidator id="requiredFieldValidator2" ControlToValidate="txtLastName"
         ErrorMessage="Bitte füllen Sie dieses Feld aus" 
-        runat="server"/>
+        runat="server" CssClass="validator"/>
     <br />
     <br />
     <asp:Label runat="server" CssClass="email">E-Mail</asp:Label>
@@ -31,19 +31,19 @@
     <asp:TextBox ID="txtEmail" runat="server" CssClass="txtEmail"></asp:TextBox>
     <asp:RequiredFieldValidator id="requiredFieldValidator3" ControlToValidate="txtEmail"
         ErrorMessage="Bitte füllen Sie dieses Feld aus" 
-        runat="server" Display="Dynamic"/>
+        runat="server" Display="Dynamic" CssClass="validator"/>
     <asp:CustomValidator id="customValidator1" ControlToValidate="txtEmail"
         OnServerValidate="email_validator"
-        ErrorMessage="Bitte geben Sie eine gültige E-Mail Adresse ein" runat="server" Display="Dynamic"/>
+        ErrorMessage="Bitte geben Sie eine gültige E-Mail Adresse ein" runat="server" Display="Dynamic" CssClass="validator"/>
     <br />
     <br />
     <asp:Label runat="server" CssClass="lblBirthdate">Geburtsdatum</asp:Label>
     <br />
     <asp:TextBox ID="txtBirthdate" runat="server" CssClass="txtBirthdate"></asp:TextBox>
-    <asp:RangeValidator ID="rangeBirthdate" runat="server" ControlToValidate="txtBirthdate" ErrorMessage="Bitte geben Sie ein gültiges Datum ein" MinimumValue="01.01.1900" MaximumValue="31.12.2021"  Type="Date" Display="Dynamic"></asp:RangeValidator>
+    <asp:RangeValidator ID="rangeBirthdate" runat="server" ControlToValidate="txtBirthdate" ErrorMessage="Bitte geben Sie ein gültiges Datum ein" MinimumValue="01.01.1900" MaximumValue="31.12.2021"  Type="Date" Display="Dynamic" CssClass="validator"></asp:RangeValidator>
     <asp:RequiredFieldValidator id="requiredFieldValidator6" ControlToValidate="txtBirthdate"
         ErrorMessage="Bitte füllen Sie dieses Feld aus" 
-        runat="server"/>
+        runat="server" CssClass="validator"/>
     <br />
     <br />
     <asp:Label ID="lblClass" runat="server" Text="Klasse" CssClass="lblClass"></asp:Label>
@@ -51,7 +51,7 @@
     <asp:TextBox ID="txtClass" runat="server" CssClass="txtClass"></asp:TextBox>
     <asp:RequiredFieldValidator id="requiredFieldValidator5" ControlToValidate="txtClass"
         ErrorMessage="Bitte füllen Sie diesses Feld aus" 
-        runat="server"/>
+        runat="server" CssClass="validator"/>
     <br />
     <br />
     <asp:Label runat="server" CssClass="interests">Interessen</asp:Label>
@@ -62,18 +62,15 @@
     </asp:RadioButtonList>
     <asp:RequiredFieldValidator id="requiredFieldValidator4" ControlToValidate="radioInterests"
         ErrorMessage="Bitte wählen Sie eine der aufgelisteten Interessen" 
-        runat="server"/>
+        runat="server" CssClass="validator"/>
     <br />
     <br />
     <asp:CheckBox ID="checkAGB" runat="server" Text="Ich akzeptiere die AGB" CssClass="checkBox" />&nbsp;
     <asp:CustomValidator id="customValidator2"
         OnServerValidate="checkBoxValidator"
-        ErrorMessage="Sie müssen die Nutzungsbedingungen akzeptieren" runat="server" Display="Dynamic"/>
-
+        ErrorMessage="Sie müssen die Nutzungsbedingungen akzeptieren" runat="server" Display="Dynamic" CssClass="validator"/>
     <br />       
-    <!--<br />-->
-    <!--<br />-->
     
-    <asp:Button type="submit" ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Einreichen" CssClass="btnSubmit" />
+    <asp:Button type="submit" ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Anmelden" CssClass="btnSubmit" />
     
 </asp:Content>

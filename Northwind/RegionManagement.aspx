@@ -15,22 +15,4 @@
     <asp:GridView ID="RegionsGrid" runat="server" CssClass="table-region"></asp:GridView>
 
     </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-
 </asp:Content>

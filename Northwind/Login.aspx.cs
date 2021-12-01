@@ -56,16 +56,6 @@ namespace NewsletterSubscription
             return (Request.Cookies["userCookie"]["firstName"] != null && Request.Cookies["userCookie"]["lastName"] != null);
         }
 
-        protected void txtFirstName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void txtLastName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         bool IsValidEmail(string email)
         {
             try
@@ -101,9 +91,6 @@ namespace NewsletterSubscription
         {
             args.IsValid = checkAGB.Checked;
         }
-
-
-        
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
