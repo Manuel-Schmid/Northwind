@@ -36,18 +36,17 @@ header {
 }
    
 
-.menu{
+.menu {
     font-size:3vh;
     text-decoration:underline;
-    padding:5px;
+    padding:10px;
 }
 
 footer {
     background-color: deepskyblue;
     bottom: 0;
     left:0;
-
-    width: 96vw;
+    width: 100vw;
     height:15vh;
     position:fixed;
 }
@@ -69,4 +68,9 @@ footer {
     line-height: 15vh;
     padding: 5px;
     margin: 10px;
+}
+
+.content-container {
+    padding-top: 5px;
+    padding-left: 5px;
 }
