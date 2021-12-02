@@ -47,8 +47,6 @@ namespace NewsletterSubscription
                 txtBirthdate.Text = Session["birthdate"].ToString();
                 txtClass.Text = Session["class"].ToString();
             }
-
-
         }
 
         private Boolean checkIfCookieIsSet()
@@ -71,14 +69,7 @@ namespace NewsletterSubscription
 
         public void checkCheckBox(object o, ServerValidateEventArgs e)
         {
-            if (checkAGB.Checked)
-            {
-                e.IsValid = true;
-            }
-            else
-            {
-                e.IsValid = false;
-            }
+            e.IsValid = checkAGB.Checked;
         }
 
         protected void email_validator(object source, ServerValidateEventArgs args)

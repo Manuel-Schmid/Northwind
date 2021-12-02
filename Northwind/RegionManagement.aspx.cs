@@ -14,7 +14,6 @@ namespace Northwind
         readonly SqlConnectionStringBuilder conBuilder = new SqlConnectionStringBuilder();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             conBuilder.DataSource = @"NOTEBOOKMANY\MSSQLSERVER2019";
             conBuilder.InitialCatalog = "Northwind";
             conBuilder.IntegratedSecurity = true;

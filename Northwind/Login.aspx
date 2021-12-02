@@ -65,7 +65,8 @@
         runat="server" CssClass="validator"/>
     <br />
     <br />
-    <asp:CheckBox ID="checkAGB" runat="server" Text="Ich akzeptiere die AGB" CssClass="checkBox" />&nbsp;
+    <asp:CheckBox ID="checkAGB" runat="server" Text="Ich akzeptiere die AGB" CssClass="checkBox" />
+    &nbsp;
     <asp:CustomValidator id="customValidator2"
         OnServerValidate="checkBoxValidator"
         ErrorMessage="Sie müssen die Nutzungsbedingungen akzeptieren" runat="server" Display="Dynamic" CssClass="validator"/>

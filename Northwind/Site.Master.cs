@@ -19,11 +19,7 @@ namespace Northwind
                 string classe = Session["class"].ToString();
                 userinfo.Text = firstname + " " + lastname + " " + classe;
                 userinfo.CssClass = "userinfoActive";
-
             }
-
-            
-            
         }
 
         private Boolean checkIfCookieIsSet()

@@ -2,27 +2,18 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-
-
-
 }
 
 .main-container :not(footer) {
     margin-left: 5px;
-
-    
 }
-
 
 header {
     height: 15vh;
     width: 100%;
-    
     background-color: darkseagreen;
     text-align: left;
 }
-
-
 
 .northwindTitle {
     font-size: 5vh;
@@ -32,9 +23,7 @@ header {
     width: 90vh;
     padding: 5px;
     margin:10px;
-
-}
-   
+} 
 
 .menu {
     font-size:3vh;
@@ -50,7 +39,6 @@ footer {
     height:15vh;
     position:fixed;
 }
-
 
 .userinfoActive {
     font-size: 3vh;
