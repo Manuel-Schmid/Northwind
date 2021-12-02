@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="NewsletterSubscription.NewsletterSubscription" %>
+﻿<%@ Page Title="Anmeldung" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="NewsletterSubscription.NewsletterSubscription" %>
 
 <asp:Content ID="NavigationContent" ContentPlaceHolderID="navigation" runat="server">Anmelden</asp:Content>
 <asp:Content ID="contentControl" ContentPlaceHolderID="content" runat="server">
