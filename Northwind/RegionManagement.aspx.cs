@@ -25,7 +25,7 @@ namespace Northwind
         {
             if (txtRegion.Text == "")
             {
-                lblNonExistent.Text = "Please enter a region name";
+                lblNonExistent.Text = "Bitte geben Sie eine Region ein";
             }
             else
             {
@@ -51,7 +51,7 @@ namespace Northwind
         {
             if (txtRegion.Text == "")
             {
-                lblNonExistent.Text = "Please enter a region name";
+                lblNonExistent.Text = "Bitte geben Sie eine Region ein";
             }
             else
             {
@@ -71,7 +71,7 @@ namespace Northwind
 
                 if (deletedRowsCount == 0)
                 {
-                    lblNonExistent.Text = "There is no such region in this database.";
+                    lblNonExistent.Text = "Diese Region existiert nicht in der Datenbank";
                 }
                 else
                 {
@@ -85,7 +85,7 @@ namespace Northwind
         {
             if (txtRegion.Text == "")
             {
-                lblNonExistent.Text = "Please enter a region name";
+                lblNonExistent.Text = "Bitte geben Sie eine Region ein";
             }
             else
             {
@@ -121,7 +121,7 @@ namespace Northwind
                 }
                 else
                 {
-                    lblNonExistent.Text = "There is no such region in this database.";
+                    lblNonExistent.Text = "Diese Region existiert nicht in der Datenbank";
                 }
             }
         }
@@ -145,7 +145,7 @@ namespace Northwind
 
             if (deletedRowsCount == 0)
             {
-                lblNonExistent.Text = "There is no such region in this database.";
+                lblNonExistent.Text = "Diese Region existiert nicht in der Datenbank";
             }
 
             con.Close();

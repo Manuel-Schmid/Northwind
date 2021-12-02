@@ -9,16 +9,19 @@
 }
 
 .txtRegion {
-    border-radius: 5px;
-    border-style: solid;
-    border-color: lightgray;
+    padding: 8px 12px;
+    margin: 4px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 /* table styling */
 .table-container {
     width: 30vw;
     float: right;
-    top: -76px;
+    top: -96px;
     right: 34vw;
     position: relative;
 }
@@ -77,8 +80,13 @@
 }
 
 .btn-regions {
-    padding: 8px;
-    border: none;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #5ec161;
+    color: white;    
+    top: -96px;
+    padding: 8px 12px;
+    margin: 4px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
