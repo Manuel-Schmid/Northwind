@@ -11,14 +11,14 @@ namespace Northwind
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            userinfo.CssClass = "userinfoInactive";
+            userinfo.Text = "© Sven Walser & Manuel Schmid - 2021";
+            //userinfo.CssClass = "userinfoInactive";
             if ( Session["firstname"] != null)
             {
                 string firstname = Session["firstname"].ToString();
                 string lastname = Session["lastname"].ToString();
                 string classe = Session["class"].ToString();
                 userinfo.Text = firstname + " " + lastname + " " + classe;
-                userinfo.CssClass = "userinfoActive";
             }
         }
 

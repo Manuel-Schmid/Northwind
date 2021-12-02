@@ -74,4 +74,11 @@
 .table-region .myPagerClass a:hover {
     color: #000;
     text-decoration: none;
-} 
+}
+
+.btn-regions {
+    padding: 8px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+}
